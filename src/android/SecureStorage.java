@@ -77,7 +77,7 @@ public class SecureStorage extends CordovaPlugin {
         //     return keyguardManager.isKeyguardSecure();
         // }
 
-        return false;
+        return true;
     }
 
     @Override
