@@ -95,15 +95,16 @@ public class SecureStorage extends CordovaPlugin {
             SharedPreferencesHandler PREFS = new SharedPreferencesHandler(alias + "_SS", getContext());
             SERVICE_STORAGE.put(service, PREFS);
 
-            if (!isDeviceSecure()) {
-                Log.e(TAG, MSG_DEVICE_NOT_SECURE);
-                callbackContext.error(MSG_DEVICE_NOT_SECURE);
-            } else if (!RSA.isEntryAvailable(alias)) {
-                initContext = callbackContext;
-                unlockCredentials();
-            } else {
-                initSuccess(callbackContext);
-            }
+            // if (!isDeviceSecure()) {
+            //     Log.e(TAG, MSG_DEVICE_NOT_SECURE);
+            //     callbackContext.error(MSG_DEVICE_NOT_SECURE);
+            // } else if (!RSA.isEntryAvailable(alias)) {
+            //     initContext = callbackContext;
+            //     unlockCredentials();
+            // } else {
+            //     initSuccess(callbackContext);
+            // }
+            initSuccess(callbackContext);
             return true;
         }
         if ("set".equals(action)) {
