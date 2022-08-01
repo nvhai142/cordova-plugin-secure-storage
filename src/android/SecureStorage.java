@@ -161,40 +161,40 @@ public class SecureStorage extends CordovaPlugin {
         if ("decrypt_rsa".equals(action)) {
             final String service = args.getString(0);
             // getArrayBuffer does base64 decoding
-            final byte[] decryptMe = args.getArrayBuffer(1);
-            cordova.getThreadPool().execute(new Runnable() {
-                public void run() {
-                    try {
-                        byte[] decrypted = RSA.decrypt(decryptMe, service2alias(service));
-                        callbackContext.success(new String (decrypted));
-                    } catch (Exception e) {
-                        Log.e(TAG, "Decrypt (RSA) failed :", e);
-                        callbackContext.error(e.getMessage());
-                    }
-                }
-            });
+            // final byte[] decryptMe = args.getArrayBuffer(1);
+            // cordova.getThreadPool().execute(new Runnable() {
+            //     public void run() {
+            //         try {
+            //             byte[] decrypted = RSA.decrypt(decryptMe, service2alias(service));
+            //             callbackContext.success(new String (decrypted));
+            //         } catch (Exception e) {
+            //             Log.e(TAG, "Decrypt (RSA) failed :", e);
+            //             callbackContext.error(e.getMessage());
+            //         }
+            //     }
+            // });
             return true;
         }
         if ("encrypt_rsa".equals(action)) {
             final String service = args.getString(0);
             final String encryptMe = args.getString(1);
-            cordova.getThreadPool().execute(new Runnable() {
-                public void run() {
-                    try {
-                        byte[] encrypted = RSA.encrypt(encryptMe.getBytes(), service2alias(service));
-                        callbackContext.success(Base64.encodeToString(encrypted, Base64.DEFAULT));
-                    } catch (Exception e) {
-                        Log.e(TAG, "Encrypt (RSA) failed :", e);
-                        callbackContext.error(e.getMessage());
-                    }
-                }
-            });
+            // cordova.getThreadPool().execute(new Runnable() {
+            //     public void run() {
+            //         try {
+            //             byte[] encrypted = RSA.encrypt(encryptMe.getBytes(), service2alias(service));
+            //             callbackContext.success(Base64.encodeToString(encrypted, Base64.DEFAULT));
+            //         } catch (Exception e) {
+            //             Log.e(TAG, "Encrypt (RSA) failed :", e);
+            //             callbackContext.error(e.getMessage());
+            //         }
+            //     }
+            // });
             return true;
         }
 
         if ("secureDevice".equals(action)) {
             secureDeviceContext = callbackContext;
-            unlockCredentials();
+           // unlockCredentials();
             return true;
         }
         //SharedPreferences interface
